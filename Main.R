@@ -68,3 +68,9 @@ for(i in 1:length(temp)) {mypic[[i]]<- resize(mypic[[i]],28,28)}
 for(i in 1:length(temp)) {mypic[[i]] <- array_reshape(mypic[[i]], c(28,28,3))}
 new <- NULL
 for(i in 1:length(temp)) {new <- rbind(new, mypic[[i]])}
+newx <- new[,1:784]
+new <-  c(7,5,2,0,5,3)
+
+#Prediction
+pred <-model %>% predict_classes(newx) 
+table(Predict = pred, Actual = newy)
